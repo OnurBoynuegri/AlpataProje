@@ -1,0 +1,12 @@
+D:\Calismalar\C#\AlpataProje\Entities\bin\Debug\net8.0\Entities.deps.json
+D:\Calismalar\C#\AlpataProje\Entities\bin\Debug\net8.0\Entities.dll
+D:\Calismalar\C#\AlpataProje\Entities\bin\Debug\net8.0\Entities.pdb
+D:\Calismalar\C#\AlpataProje\Entities\obj\Debug\net8.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
+D:\Calismalar\C#\AlpataProje\Entities\obj\Debug\net8.0\Entities.AssemblyInfoInputs.cache
+D:\Calismalar\C#\AlpataProje\Entities\obj\Debug\net8.0\Entities.AssemblyInfo.cs
+D:\Calismalar\C#\AlpataProje\Entities\obj\Debug\net8.0\Entities.csproj.CoreCompileInputs.cache
+D:\Calismalar\C#\AlpataProje\Entities\obj\Debug\net8.0\Entities.sourcelink.json
+D:\Calismalar\C#\AlpataProje\Entities\obj\Debug\net8.0\Entities.dll
+D:\Calismalar\C#\AlpataProje\Entities\obj\Debug\net8.0\refint\Entities.dll
+D:\Calismalar\C#\AlpataProje\Entities\obj\Debug\net8.0\Entities.pdb
+D:\Calismalar\C#\AlpataProje\Entities\obj\Debug\net8.0\ref\Entities.dll
