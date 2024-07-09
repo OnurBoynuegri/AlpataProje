@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -51,6 +52,32 @@ namespace Business.Concrete
 		public async Task<User> GetUserById(int id)
 		{
 			return await _userDal.GetById(id);
+		}
+
+		public async Task<User> RegisterUserAsync(UserRegisterDto userDto)
+		{
+			var user = new User
+			{
+				Name = userDto.Name,
+				Surname = userDto.Surname,
+				PhoneNumber = userDto.PhoneNumber,				
+				Email = userDto.Email
+			};
+
+			user.Password = _passwordHasher.HashPassword(user, user.Password);
+
+			if (userDto.Image != null)
+			{
+				var imagePath = Path.Combine("wwwroot/images", $"{Guid.NewGuid()}{Path.GetExtension(userDto.Image.FileName)}");
+				using (var stream = new FileStream(imagePath, FileMode.Create))
+				{
+					await userDto.Image.CopyToAsync(stream);
+				}
+				user.Image = imagePath;
+			}
+
+			await AddUser(user);
+			return user;
 		}
 
 		public async Task UpdateUser(User user)

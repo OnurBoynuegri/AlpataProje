@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,7 +24,6 @@ namespace WebAPI.Controllers
 			return Ok(users);
 
 		}
-	
 
 		[HttpGet("GetUserById")]
 		public async Task<IActionResult> GetUserById(int id)
@@ -65,11 +65,15 @@ namespace WebAPI.Controllers
 			return NoContent();
 		}
 
-		[HttpPost("register")]
-		public async Task<ActionResult<User>> Register(User user)
+		[HttpPost("Register")]
+		public async Task<ActionResult<User>> Register([FromForm] UserRegisterDto userDto)
 		{
-			await _userService.AddUser(user);
 
+			if (userDto == null)
+			{
+				return BadRequest();
+			}
+			var user = await _userService.RegisterUserAsync(userDto);
 			return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
 		}
 	

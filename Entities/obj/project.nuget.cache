@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "28H6jwPBbG3p6v6f4E5sKZswcGTGlbZXOFQwGEZhBmltBgS/gN44uAl/sJcC01gCKwPwanILDAvPnOj04gLhnw==",
+  "dgSpecHash": "NKfqyjeiSPfu7jyrNOuyp+YxXMlrhIco9E8yEQapcdmx2f7lCX/9UA1A8ZYK/rW64kUY0ZqRFp1hbC+nP2/2Hg==",
   "success": true,
   "projectFilePath": "D:\\Calismalar\\C#\\AlpataProje\\Entities\\Entities.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

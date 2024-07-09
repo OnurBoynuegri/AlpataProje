@@ -1,4 +1,5 @@
 ﻿using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,7 @@ namespace Business.Abstract
 		Task AddUser(User user);
 		Task UpdateUser(User user);
 		Task DeleteUser(int id);
+		Task<User> RegisterUserAsync(UserRegisterDto userDto);
+		Task<User> LoginUserAsync(UserLoginDto userLoginDto);
 	}
 }
