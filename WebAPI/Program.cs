@@ -5,6 +5,8 @@ using DataAccess.Concrete;
 using DataAccess.Context;
 using DataAccess.Repository;
 using DataAccess.Repository.Abstract;
+using Entities.Concrete;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +26,8 @@ builder.Services.AddScoped(typeof(IEntityRepository<>), typeof(EfEntityRepositor
 builder.Services.AddScoped<IUserDal, EfUserDal>();
 builder.Services.AddScoped<IUserService, UserManager>();
 
+// Add PasswordHasher
+builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 
 
 var app = builder.Build();

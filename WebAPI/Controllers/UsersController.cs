@@ -23,6 +23,7 @@ namespace WebAPI.Controllers
 			return Ok(users);
 
 		}
+	
 
 		[HttpGet("{id}")]
 		public async Task<IActionResult> GetUserById(int id)
@@ -64,5 +65,13 @@ namespace WebAPI.Controllers
 			return NoContent();
 		}
 
+		[HttpPost("register")]
+		public async Task<ActionResult<User>> Register(User user)
+		{
+			await _userService.AddUser(user);
+
+			return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
+		}
+	
 	}
 }

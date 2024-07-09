@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,13 +14,16 @@ namespace Business.Concrete
 	{
 
 		private readonly IUserDal _userDal;
-        public UserManager(IUserDal userDal)
-        {
-				_userDal = userDal;
-        }
+		private readonly IPasswordHasher<User> _passwordHasher;
+		public UserManager(IUserDal userDal, IPasswordHasher<User> passwordHasher)
+		{
+			_userDal = userDal;
+			_passwordHasher = passwordHasher;
+		}
 
 		public async Task AddUser(User user)
 		{
+			user.Password = _passwordHasher.HashPassword(user, user.Password);
 			await _userDal.Add(user);
 		}
 
