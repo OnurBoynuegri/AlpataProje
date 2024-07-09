@@ -15,16 +15,23 @@ namespace Business.Concrete
 
 		private readonly IUserDal _userDal;
 		private readonly IPasswordHasher<User> _passwordHasher;
-		public UserManager(IUserDal userDal, IPasswordHasher<User> passwordHasher)
+		private readonly IEmailService _emailService;
+		public UserManager(IUserDal userDal, IPasswordHasher<User> passwordHasher, IEmailService emailService)
 		{
 			_userDal = userDal;
 			_passwordHasher = passwordHasher;
+			_emailService = emailService;
 		}
 
 		public async Task AddUser(User user)
 		{
 			user.Password = _passwordHasher.HashPassword(user, user.Password);
 			await _userDal.Add(user);
+
+			string subject = "Hoş Geldiniz...";
+			string message= $"Merhaba {user.Name}, kaydolduğunuz için teşekkür ederiz!";
+			await _emailService.SendEmailAsync(user.Email, subject, message);
+
 		}
 
 		public async Task DeleteUser(int id)
