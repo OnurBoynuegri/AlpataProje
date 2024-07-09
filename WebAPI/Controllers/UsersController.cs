@@ -16,7 +16,7 @@ namespace WebAPI.Controllers
             _userService = userService;
         }
 
-		[HttpGet]
+		[HttpGet("GetAllUsers")]
 		public async Task <IActionResult> GetAllUsers()
 		{
 			var users = await _userService.GetAllUsers();
@@ -25,7 +25,7 @@ namespace WebAPI.Controllers
 		}
 	
 
-		[HttpGet("{id}")]
+		[HttpGet("GetUserById")]
 		public async Task<IActionResult> GetUserById(int id)
 		{
 			var user = await _userService.GetUserById(id);
@@ -36,7 +36,7 @@ namespace WebAPI.Controllers
 			return Ok(user);
 		}
 
-		[HttpPost]
+		[HttpPost("AddUser")]
 		public async Task<IActionResult> AddUser([FromBody] User user)
 		{
 			if (user == null)
@@ -47,21 +47,21 @@ namespace WebAPI.Controllers
 			return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
 		}
 
-		[HttpPut("{id}")]
-		public IActionResult UpdateUser(int id, [FromBody] User user)
+		[HttpPut("UpdateUser")]
+		public async Task<IActionResult> UpdateUser(int id, [FromBody] User user)
 		{
 			if (id != user.Id)
 			{
 				return BadRequest();
 			}
-			_userService.UpdateUser(user);
+			await _userService.UpdateUser(user);
 			return NoContent();
 		}
 
-		[HttpDelete("{id}")]
-		public IActionResult DeleteUser(int id)
+		[HttpDelete("DeleteUser")]
+		public async Task<IActionResult> DeleteUser(int id)
 		{
-			_userService.DeleteUser(id);
+			await _userService.DeleteUser(id);
 			return NoContent();
 		}
 

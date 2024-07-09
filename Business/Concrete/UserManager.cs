@@ -27,7 +27,7 @@ namespace Business.Concrete
 			await _userDal.Add(user);
 		}
 
-		public async void DeleteUser(int id)
+		public async Task DeleteUser(int id)
 		{
 			var user = await _userDal.GetById(id);
 			if (user != null)
@@ -46,7 +46,7 @@ namespace Business.Concrete
 			return await _userDal.GetById(id);
 		}
 
-		public async void UpdateUser(User user)
+		public async Task UpdateUser(User user)
 		{
 			await _userDal.Update(user);
 		}

@@ -12,7 +12,7 @@ namespace Business.Abstract
 		Task<IEnumerable<User>> GetAllUsers();
 		Task<User> GetUserById(int id);
 		Task AddUser(User user);
-		void UpdateUser(User user);
-		void DeleteUser(int id);
+		Task UpdateUser(User user);
+		Task DeleteUser(int id);
 	}
 }
