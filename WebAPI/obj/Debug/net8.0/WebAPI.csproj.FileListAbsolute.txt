@@ -80,3 +80,4 @@ D:\Calismalar\C#\AlpataProje\WebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Crypto
 D:\Calismalar\C#\AlpataProje\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 D:\Calismalar\C#\AlpataProje\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 D:\Calismalar\C#\AlpataProje\WebAPI\bin\Debug\net8.0\WebAPI.staticwebassets.runtime.json
+D:\Calismalar\C#\AlpataProje\WebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

@@ -1,11 +1,16 @@
 ﻿using Business.Abstract;
+using Business.Concrete.Jwt;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,11 +22,13 @@ namespace Business.Concrete
 		private readonly IUserDal _userDal;
 		private readonly IPasswordHasher<User> _passwordHasher;
 		private readonly IEmailService _emailService;
-		public UserManager(IUserDal userDal, IPasswordHasher<User> passwordHasher, IEmailService emailService)
+		private readonly JwtSettings _jwtSettings;
+		public UserManager(IUserDal userDal, IPasswordHasher<User> passwordHasher, IEmailService emailService, IOptions<JwtSettings> jwtSettings)
 		{
 			_userDal = userDal;
 			_passwordHasher = passwordHasher;
 			_emailService = emailService;
+			_jwtSettings = jwtSettings.Value;
 		}
 
 		public async Task AddUser(User user)
@@ -109,5 +116,29 @@ namespace Business.Concrete
 		{
 			await _userDal.Update(user);
 		}
+
+
+		public async Task<string> GenerateJwtToken(User user)
+		{
+			var claims = new[]
+			{
+			new Claim(JwtRegisteredClaimNames.Sub, user.Email),
+			new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+		};
+
+			var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));
+			var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+			var token = new JwtSecurityToken(
+				issuer: _jwtSettings.Issuer,
+				audience: _jwtSettings.Audience,
+				claims: claims,
+				expires: DateTime.Now.AddMinutes(_jwtSettings.Expires),
+				signingCredentials: creds);
+
+			return new JwtSecurityTokenHandler().WriteToken(token);
+		}
+
+
 	}
 }

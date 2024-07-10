@@ -18,5 +18,6 @@ namespace Business.Abstract
 		Task<User> GetUserByEmail(string email);
 		Task<User> RegisterUserAsync(UserRegisterDto userDto);
 		Task<User> LoginUserAsync(UserLoginDto userLoginDto);
+		Task<string> GenerateJwtToken(User user);
 	}
 }

@@ -74,7 +74,8 @@ namespace WebAPI.Controllers
 				return BadRequest();
 			}
 			var user = await _userService.RegisterUserAsync(userDto);
-			return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
+			var token = await _userService.GenerateJwtToken(user);
+			return Ok(new { User = user, Token = token });
 		}
 
 		[HttpPost("login")]
@@ -90,8 +91,9 @@ namespace WebAPI.Controllers
 			{
 				return Unauthorized();
 			}
+			var token = await _userService.GenerateJwtToken(user);
 
-			return Ok(user);
+			return Ok(new { Token = token });
 		}
 
 	}

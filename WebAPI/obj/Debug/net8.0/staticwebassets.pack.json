@@ -5,6 +5,18 @@
       "PackagePath": "staticwebassets\\images\\55d784c9-0286-40b4-b089-28c2a4ba225d.jpg"
     },
     {
+      "Id": "D:\\Calismalar\\C#\\AlpataProje\\WebAPI\\wwwroot\\images\\ccbadc5e-bb7f-40ff-a29f-df18ca592251.jpg",
+      "PackagePath": "staticwebassets\\images\\ccbadc5e-bb7f-40ff-a29f-df18ca592251.jpg"
+    },
+    {
+      "Id": "D:\\Calismalar\\C#\\AlpataProje\\WebAPI\\wwwroot\\images\\d345d2ad-f733-48c3-9ebc-cf2c5e332040.jpg",
+      "PackagePath": "staticwebassets\\images\\d345d2ad-f733-48c3-9ebc-cf2c5e332040.jpg"
+    },
+    {
+      "Id": "D:\\Calismalar\\C#\\AlpataProje\\WebAPI\\wwwroot\\images\\ea0ced09-a313-49d7-8cf3-80d397e4151c.jpg",
+      "PackagePath": "staticwebassets\\images\\ea0ced09-a313-49d7-8cf3-80d397e4151c.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
