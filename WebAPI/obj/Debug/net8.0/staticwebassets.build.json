@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YRxNXqiDkzMpYxh6oC0wK5T6dm4KiVO61G9/zPzrGOo=",
+  "Hash": "En0a9dLKXTVG434yIzPrEvIrCjEN5cSSJEWroNmMeL8=",
   "Source": "WebAPI",
   "BasePath": "_content/WebAPI",
   "Mode": "Default",
@@ -15,5 +15,25 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "D:\\Calismalar\\C#\\AlpataProje\\WebAPI\\wwwroot\\images\\55d784c9-0286-40b4-b089-28c2a4ba225d.jpg",
+      "SourceId": "WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Calismalar\\C#\\AlpataProje\\WebAPI\\wwwroot\\",
+      "BasePath": "_content/WebAPI",
+      "RelativePath": "images/55d784c9-0286-40b4-b089-28c2a4ba225d.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\55d784c9-0286-40b4-b089-28c2a4ba225d.jpg"
+    }
+  ]
 }

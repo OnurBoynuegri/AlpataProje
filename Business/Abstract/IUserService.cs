@@ -15,6 +15,7 @@ namespace Business.Abstract
 		Task AddUser(User user);
 		Task UpdateUser(User user);
 		Task DeleteUser(int id);
+		Task<User> GetUserByEmail(string email);
 		Task<User> RegisterUserAsync(UserRegisterDto userDto);
 		Task<User> LoginUserAsync(UserLoginDto userLoginDto);
 	}

@@ -26,11 +26,10 @@ namespace Business.Concrete
 
 		public async Task AddUser(User user)
 		{
-			user.Password = _passwordHasher.HashPassword(user, user.Password);
 			await _userDal.Add(user);
 
 			string subject = "Hoş Geldiniz...";
-			string message= $"Merhaba {user.Name}, kaydolduğunuz için teşekkür ederiz!";
+			string message = $"Merhaba {user.Name}, kaydolduğunuz için teşekkür ederiz!";
 			await _emailService.SendEmailAsync(user.Email, subject, message);
 
 		}
@@ -49,9 +48,34 @@ namespace Business.Concrete
 			return await _userDal.GetAll();
 		}
 
+		public async Task<User> GetUserByEmail(string email)
+		{
+			return await _userDal.GetByEmail(email);
+		}
+
 		public async Task<User> GetUserById(int id)
 		{
 			return await _userDal.GetById(id);
+		}
+
+		public async Task<User> LoginUserAsync(UserLoginDto userLoginDto)
+		{
+			var user = await GetUserByEmail(userLoginDto.Email);
+			if (user == null)
+			{
+				return null;
+			}
+
+			var passwordVerificationResult = _passwordHasher.VerifyHashedPassword(user, user.Password, userLoginDto.Password);
+			if (passwordVerificationResult == PasswordVerificationResult.Failed)
+			{
+				return null;
+			}
+			else
+			{
+				return user;
+			}
+
 		}
 
 		public async Task<User> RegisterUserAsync(UserRegisterDto userDto)
@@ -60,11 +84,12 @@ namespace Business.Concrete
 			{
 				Name = userDto.Name,
 				Surname = userDto.Surname,
-				PhoneNumber = userDto.PhoneNumber,				
+				PhoneNumber = userDto.PhoneNumber,
+				Password = userDto.Password,
 				Email = userDto.Email
 			};
 
-			user.Password = _passwordHasher.HashPassword(user, user.Password);
+			user.Password = _passwordHasher.HashPassword(user, userDto.Password);
 
 			if (userDto.Image != null)
 			{

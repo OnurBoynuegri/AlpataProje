@@ -12,13 +12,13 @@ namespace WebAPI.Controllers
 	{
 		private readonly IUserService _userService;
 
-        public UsersController(IUserService userService)
-        {
-            _userService = userService;
-        }
+		public UsersController(IUserService userService)
+		{
+			_userService = userService;
+		}
 
 		[HttpGet("GetAllUsers")]
-		public async Task <IActionResult> GetAllUsers()
+		public async Task<IActionResult> GetAllUsers()
 		{
 			var users = await _userService.GetAllUsers();
 			return Ok(users);
@@ -76,6 +76,23 @@ namespace WebAPI.Controllers
 			var user = await _userService.RegisterUserAsync(userDto);
 			return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
 		}
-	
+
+		[HttpPost("login")]
+		public async Task<IActionResult> Login([FromBody] UserLoginDto userLoginDto)
+		{
+			if (userLoginDto == null)
+			{
+				return BadRequest();
+			}
+
+			var user = await _userService.LoginUserAsync(userLoginDto);
+			if (user == null)
+			{
+				return Unauthorized();
+			}
+
+			return Ok(user);
+		}
+
 	}
 }
