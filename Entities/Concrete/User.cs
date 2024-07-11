@@ -17,5 +17,7 @@ namespace Entities.Concrete
         public string Image { get; set; }
         public string Email { get; set; }
 
-    }
+		public ICollection<UserMeeting> UserMeetings { get; set; }
+
+	}
 }

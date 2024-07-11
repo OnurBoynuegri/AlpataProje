@@ -34,7 +34,6 @@ namespace Business.Concrete
 		public async Task AddUser(User user)
 		{
 			await _userDal.Add(user);
-
 			string subject = "Hoş Geldiniz...";
 			string message = $"Merhaba {user.Name}, kaydolduğunuz için teşekkür ederiz!";
 			await _emailService.SendEmailAsync(user.Email, subject, message);

@@ -11,8 +11,8 @@ namespace DataAccess.Repository
 {
 	public class EfEntityRepositoryBase<T> : IEntityRepository<T> where T : class
 	{
-		private readonly AlpataProjeDbContext _context;
-		private readonly DbSet<T> _dbSet;
+		protected readonly AlpataProjeDbContext _context;
+		protected readonly DbSet<T> _dbSet;
         public EfEntityRepositoryBase(AlpataProjeDbContext context)
         {
             _context = context;

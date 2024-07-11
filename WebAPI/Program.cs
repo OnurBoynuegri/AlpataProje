@@ -29,6 +29,10 @@ builder.Services.AddDbContext<AlpataProjeDbContext>(options =>
 builder.Services.AddScoped(typeof(IEntityRepository<>), typeof(EfEntityRepositoryBase<>));
 builder.Services.AddScoped<IUserDal, EfUserDal>();
 builder.Services.AddScoped<IUserService, UserManager>();
+builder.Services.AddScoped<IMeetingDal, EfMeetingDal>();
+builder.Services.AddScoped<IMeetingService, MeetingManager>();
+builder.Services.AddScoped<IUserMeetingDal, EfUserMeetingDal>();
+
 builder.Services.AddScoped<IEmailService,EmailManager>();
 
 // Add PasswordHasher

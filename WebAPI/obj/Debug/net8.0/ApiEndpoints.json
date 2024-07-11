@@ -1,5 +1,94 @@
 [
   {
+    "ContainingType": "WebAPI.Controllers.MeetingsController",
+    "Method": "AddMeeting",
+    "RelativePath": "api/Meetings/AddMeeting",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "meeting",
+        "Type": "Entities.Concrete.Meeting",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.MeetingsController",
+    "Method": "DeleteMeeting",
+    "RelativePath": "api/Meetings/DeleteMeeting",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.MeetingsController",
+    "Method": "GetAllMeetings",
+    "RelativePath": "api/Meetings/GetAllMeetings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.MeetingsController",
+    "Method": "GetMeetingById",
+    "RelativePath": "api/Meetings/GetMeetingById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.MeetingsController",
+    "Method": "GetMeetingDetails",
+    "RelativePath": "api/Meetings/GetMeetingDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.MeetingsController",
+    "Method": "UpdateMeeting",
+    "RelativePath": "api/Meetings/UpdateMeeting",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "meeting",
+        "Type": "Entities.Concrete.Meeting",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebAPI.Controllers.UsersController",
     "Method": "AddUser",
     "RelativePath": "api/Users/AddUser",
